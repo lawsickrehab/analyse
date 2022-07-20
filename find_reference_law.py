@@ -1,5 +1,6 @@
+import re
 def find_by_regex(str):
-    # 總總部可愛
+    # 總總好可愛
     regex = r'參考法條：(.*?[一二三四五六七八九十百千]+、)?'
     matches = re.findall(regex, str, re.DOTALL)
     ret = []
@@ -14,8 +15,5 @@ def find_by_regex(str):
         match = match[:-1]
         ret.extend(match)
  
-
-
-
     # print(ret)
     return ret

@@ -1,20 +1,18 @@
 import re
 
-# data=["刑法第50條、第55條。","組織犯罪防制條例第 4條。","刑事訴訟 法第161條、第163條。"]
-
 def str2list(ditiao):
-    assert re.search('^第.*條。$',ditiao),'str2list not expected format'
-    return ditiao[:-1].split('、')
+#    assert re.search('^第.*條。$',ditiao),'str2list not expected format'
+    return ditiao.split('、')
 
 def analyse(data):
-    end=['法','條例']
+    end=['法','條例','公約']
     catagory=['刑法','刑事訴訟法','其他']
     dic={catagory[0]:{},catagory[1]:{},catagory[2]:{}}
     for d in data:
 
         d=d.replace(' ','')
-        assert d.endswith('。'),'string does not end with\' 。\''
-        assert any([re.search(ed,d) for ed in end]),'Input not expected format'
+#        assert d.endswith('。'),'string does not end with\' 。\''
+        assert any([re.search(ed,d) for ed in end]),d+'Input not expected format'
 
         cutIdx=d.find('第')
         main=d[:cutIdx]
