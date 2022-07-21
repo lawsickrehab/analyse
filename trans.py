@@ -1,6 +1,6 @@
 import PyPDF2
 
-def read(fname):
+def pdf2txt(fname):
     text=""
     pdfFileObj=open(fname,'rb') 
     pdfReader=PyPDF2.PdfFileReader(pdfFileObj) 
@@ -9,3 +9,13 @@ def read(fname):
         text+=pageObj.extractText()
     pdfFileObj.close()
     return text
+
+import csv
+
+def dic2csv(dic,fname):
+    with open(fname,'w') as f:
+        writer=csv.writer(f)
+        for k,v in dic.items():
+            writer.writerow([k,v])
+    return
+
