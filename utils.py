@@ -1,4 +1,4 @@
-from constants import *
+from const import *
 
 
 def dicsum(dics):
