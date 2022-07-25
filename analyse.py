@@ -1,6 +1,6 @@
 import re
 
-catagory=['刑法','刑事訴訟法','其他']
+from const import *
 
 def str2list(ditiao):
 #    assert re.search('^第.*條。$',ditiao),'str2list not expected format'
@@ -15,13 +15,13 @@ def cut(d):
     cutIdx=d.find('第')
     name=d[:cutIdx]
     cata=name
-    if cata!=catagory[0] and cata!=catagory[1]:
-        cata=catagory[2]
+    if cata!=catagories[0] and cata!=catagories[1]:
+        cata=catagories[2]
     return cata,name,str2list(d[cutIdx:])
      
 
 def analyse(zp):
-    dic={catagory[0]:{},catagory[1]:{},catagory[2]:{}}
+    dic={catagories[0]:{},catagories[1]:{},catagories[2]:{}}
     for c,rs in zp:
         for r in rs:
             main,name,lst=cut(r) 
