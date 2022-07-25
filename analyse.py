@@ -12,7 +12,7 @@ def analyse(data):
 
         d=d.replace(' ','')
 #        assert d.endswith('。'),'string does not end with\' 。\''
-        assert any([re.search(ed,d) for ed in end]),d+'Input not expected format'
+        assert any([re.search(ed,d) for ed in end]),d+'=> Input not end with \''+'\' or \''.join(end)+'\''
 
         cutIdx=d.find('第')
         main=d[:cutIdx]
