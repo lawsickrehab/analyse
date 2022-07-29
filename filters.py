@@ -45,6 +45,10 @@ def contents(str):
 def prec(s):
     year=s[0:3]
     type=s[5:7]
+    match=re.search('(.*)第([0-9]*)號$',s)
+    if not match:
+#        print(s,"format strange")
+        return "NIL"
     num=re.search('(.*)第([0-9]*)號$',s).group(2)
     return year+','+type+','+num
 
