@@ -41,3 +41,11 @@ def contents(str):
     matches=[matches[i][:matches[i].find('號')+1] for i in range(2,len(matches),2)]
     
     return matches
+
+def prec(s):
+    year=s[0:3]
+    type=s[5:7]
+    num=re.search('(.*)第([0-9]*)號$',s).group(2)
+    return year+','+type+','+num
+
+    
