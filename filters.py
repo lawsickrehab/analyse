@@ -31,7 +31,7 @@ def contents(str):
 #    print("line 31",matches)
     if(len(matches)!=1):
         print(matches)
-    assert len(matches)==1, "more than one content found"
+    assert len(matches)==1, str+"more than one content found"
     matches=pure(matches[0],' \n\t.　')
 #    print("-----")
 #    print(repr(matches))
